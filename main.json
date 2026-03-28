@@ -1,0 +1,13 @@
+{
+	"id": "MewgenicsCD",
+	"author": ["Noodlemire"],
+	"description": "Crossover Challenge Decks based on Mewgenics bosses",
+	"prefix": "mewcd",
+	"main_file": "main.lua",
+	"priority": 0,
+	"badge_colour": "88a382",
+	"badge_text_colour": "d6edee",
+	"display_name": "Mewgenics Challenge Decks",
+	"version": "1.0.0",
+	"name":"MewgenicsCD"
+}

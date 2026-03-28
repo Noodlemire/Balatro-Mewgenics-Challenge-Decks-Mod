@@ -1,0 +1,184 @@
+[manifest]
+version = "2.0"
+dump_lua = true
+priority = 0
+
+# Dybbuk - Allow Jokers' card.ability.x_mult to function when negative
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name ~= 'Seeing Double' and self.ability.x_mult > 1 and (self.ability.type == '' or next(context.poker_hands[self.ability.type])) then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name ~= 'Seeing Double' and self.ability.x_mult ~= 1 and (self.ability.type == '' or next(context.poker_hands[self.ability.type])) then
+'''
+
+# Dybbuk - Allow Jokers' card.ability.mult to function when negative
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Ceremonial Dagger' and self.ability.mult > 0 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Ceremonial Dagger' and self.ability.mult ~= 0 then
+'''
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Swashbuckler' and self.ability.mult > 0 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Swashbuckler' and self.ability.mult ~= 0 then
+'''
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Spare Trousers' and self.ability.mult > 0 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Spare Trousers' and self.ability.mult ~= 0 then
+'''
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Ride the Bus' and self.ability.mult > 0 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Ride the Bus' and self.ability.mult ~= 0 then
+'''
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Flash Card' and self.ability.mult > 0 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Flash Card' and self.ability.mult ~= 0 then
+'''
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Popcorn' and self.ability.mult > 0 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Popcorn' and self.ability.mult ~= 0 then
+'''
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Green Joker' and self.ability.mult > 0 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Green Joker' and self.ability.mult ~= 0 then
+'''
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Red Card' and self.ability.mult > 0 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Red Card' and self.ability.mult ~= 0 then
+'''
+
+#Ditto for the only Chips Joker that cares if its chips value isn't 0 for some reason.
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Castle' and (self.ability.extra.chips > 0) then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Castle' and self.ability.extra.chips ~= 0 then
+'''
+
+#""""caino_xmult""""
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.name == 'Caino' and self.ability.caino_xmult > 1 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.name == 'Caino' and self.ability.caino_xmult ~= 1 then
+'''
+
+#Even though negative h_size works fine, d_size just doesn't. Consequences of vanilla jokers only ever decreasing one, I guess.
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.d_size > 0 then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.d_size ~= 0 then
+'''
+
+#Of course, of course. Of course there's t_mult and t_chips too.
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.t_mult > 0 and next(context.poker_hands[self.ability.type]) then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.t_mult ~= 0 and next(context.poker_hands[self.ability.type]) then
+'''
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.ability.t_chips > 0 and next(context.poker_hands[self.ability.type]) then
+'''
+position = "at"
+replace = true
+match_indent = true
+payload = '''
+if self.ability.t_chips ~= 0 and next(context.poker_hands[self.ability.type]) then
+'''
