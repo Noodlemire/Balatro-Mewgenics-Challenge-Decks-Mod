@@ -49,7 +49,6 @@ local function has_numbers(tbl, inner)
 		if type(v) == "table" and not nonfunc_vars[k] then
 			if has_numbers(v, true) then return true end
 		elseif type(v) == "number" and not nonfunc_vars[k] and (inner or (not meant_to_be_1[k] and v ~= 0) or (meant_to_be_1[k] and v ~= 1)) then
-			print("Found: "..k)
 			return true
 		end
 	end
@@ -73,7 +72,6 @@ MewgenicsCD.functions.dybbuk_calculate = function(self, obj, context, doubled)
 		for _, joker in ipairs(G.jokers.cards) do
 			if not joker.edition or not joker.edition.negative or not SMODS.is_eternal(joker, obj) then
 				table.insert(eligible_any, joker)
-				print(joker.config.center.key)
 				if not joker_exceptions[joker.config.center.key] and has_numbers(joker.ability) then
 					table.insert(eligible_numbered, joker)
 				end
