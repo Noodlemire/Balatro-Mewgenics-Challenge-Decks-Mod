@@ -1,0 +1,7 @@
+{
+	"name": "Mewgenics_Challenge_Decks",
+	"description": "Crossover Challenge Decks based on Mewgenics bosses",
+	"version_number": "1.0.0",
+	"website_url": "https://github.com/Noodlemire/Balatro-Mewgenics-Challenge-Decks-Mod",
+	"dependencies": ["Steamodded-Steamodded-26.829.0"]
+}
