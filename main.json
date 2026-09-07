@@ -9,5 +9,9 @@
 	"badge_text_colour": "d6edee",
 	"display_name": "Mewgenics Challenge Decks",
 	"version": "1.0.0",
-	"name":"MewgenicsCD"
+	"name":"MewgenicsCD",
+	"dependencies": [
+		"Steamodded (>=26.829.0)",
+		"Lovely (>=0.7.1)"
+	]
 }
